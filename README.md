@@ -89,7 +89,7 @@
       <td>이름은 5자 이하</td>
     </tr>
     <tr>
-      <td></td>
+      <td>O</td>
       <td>이름이 한대면 경주 안됨</td>
     </tr>
 </table>
