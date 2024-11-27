@@ -6,7 +6,6 @@ class CarsNameValidation(
     fun validateCarsName() {
         isNotEmpty()
         checkCarsCount()
-        isCOMMA()
     }
 
     private fun isNotEmpty() {
@@ -16,11 +15,6 @@ class CarsNameValidation(
     private fun checkCarsCount() {
         val carsCount = carsName.split(COMMA).size
         require(carsCount >= RACING_OK_COUNT) { CarsNameErrorType.UP_1.errorMessage }
-    }
-
-
-    private fun isCOMMA() {
-        require(carsName.contains(COMMA)) { CarsNameErrorType.N0_COMMA.errorMessage }
     }
 
     companion object {
