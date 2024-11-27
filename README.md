@@ -52,11 +52,11 @@
    </tr>
     <tr>
       <td rowspan="4">시도 횟수</td>
-      <td></td>
+      <td>O</td>
       <td>빈 경우</td>
     </tr>
     <tr>
-      <td></td>
+      <td>O</td>
       <td>시도 횟수는 long 범위를 입력하지 못한다.</td>
     </tr>
     <tr>
