@@ -6,6 +6,7 @@ class CarsNameValidation(
     fun validateCarsName() {
         isNotEmpty()
         checkCarsCount()
+        checkCarNameEmpty()
         checkCarName5()
     }
 
@@ -18,6 +19,10 @@ class CarsNameValidation(
         require(carsCount >= RACING_OK_COUNT) { CarsNameErrorType.UP_1.errorMessage }
     }
 
+    private fun checkCarNameEmpty() {
+        val carsName = carsName.split(COMMA)
+        require(carsName.any { it.isNotEmpty() }) { CarsNameErrorType.EMPTY_INPUT.errorMessage }
+    }
     private fun checkCarName5() {
         val carsName = carsName.split(COMMA)
         require(carsName.any { it.length <= CAR_NAME_OK_LENGTH }) { CarsNameErrorType.UNDER_5.errorMessage }
