@@ -5,8 +5,8 @@ import racingcar.view.InputView
 import racingcar.view.OutputView
 
 class UserInteractionController(
-    val inputView: InputView = InputView(),
-    val outputView: OutputView = OutputView(),
+    private val inputView: InputView = InputView(),
+    private val outputView: OutputView = OutputView(),
 ) {
 
     fun handleCarsName(): String {
