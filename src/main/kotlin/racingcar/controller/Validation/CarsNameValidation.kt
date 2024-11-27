@@ -27,7 +27,7 @@ class CarsNameValidation(
 
     private fun checkCarName5() {
         val carsName = carsName.split(COMMA)
-        require(carsName.any { it.length <= CAR_NAME_OK_LENGTH }) { CarsNameErrorType.UNDER_5.errorMessage }
+        require(carsName.any { it.length > CAR_NAME_OK_LENGTH }) { CarsNameErrorType.UNDER_5.errorMessage }
     }
 
     private fun checkSameName() {
