@@ -15,7 +15,7 @@ class RaceCountValidation(
     }
 
     private fun isLong() {
-        require(raceCount.toLongOrNull() == null) { RaceCountErrorType.NO_LONG.errorMessage }
+        require(raceCount.toLongOrNull() != null) { RaceCountErrorType.NO_LONG.errorMessage }
     }
 
     private fun isInteger() {
