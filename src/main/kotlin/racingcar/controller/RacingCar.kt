@@ -9,19 +9,9 @@ class RacingCar(
     private val userInteractionController: UserInteractionController = UserInteractionController()
 ) {
     fun run() {
-        val carsName = getCarsName()
-        validateCarName(carsName)
-        val cars = adapterCarsName(carsName)
-
-        val raceCount = getRaceCount()
-        validateRaceCount(raceCount)
-        val playCount = adapterRaceCount(raceCount)
-
-        userInteractionController.handlePlayStart()
-        for (count in 1..playCount) {
-            cars.forEach { it.move() }
-            userInteractionController.handleEachRoundResult(cars)
-        }
+        val cars = startCarsName()
+        val playCount = startRaceCount()
+        val doneCars = startGame(playCount, cars)
     }
 
     private fun getCarsName(): String {
@@ -44,8 +34,22 @@ class RacingCar(
         raceCountValidation.validateRaceCount()
     }
 
+    private fun startCarsName(): List<Car> {
+        val carsName = getCarsName()
+        validateCarName(carsName)
+        val cars = adapterCarsName(carsName)
+        return cars
+    }
+
+    private fun startRaceCount(): Int {
+        val raceCount = getRaceCount()
+        validateRaceCount(raceCount)
+        val playCount = adapterRaceCount(raceCount)
+        return playCount
+    }
+
     private fun adapterCarsName(carsName: String): List<Car> {
-        val cars = carsName.split(",").map { Car(it.trim()) }
+        val cars = carsName.split(COMMA).map { Car(it.trim()) }
         return cars
     }
 
@@ -53,5 +57,17 @@ class RacingCar(
         return raceCount.toInt()
     }
 
+    private fun startGame(playCount: Int, cars: List<Car>): List<Car> {
+        userInteractionController.handlePlayStart()
+        for (count in START_GAME..playCount) {
+            cars.forEach { it.move() }
+            userInteractionController.handleEachRoundResult(cars)
+        }
+        return cars
+    }
 
+    companion object {
+        private const val COMMA = ","
+        private const val START_GAME = 1
+    }
 }

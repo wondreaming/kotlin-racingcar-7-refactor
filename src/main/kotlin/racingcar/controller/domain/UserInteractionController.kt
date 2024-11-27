@@ -27,5 +27,6 @@ class UserInteractionController(
 
     fun handleEachRoundResult(cars: List<Car>) {
         outputView.showEachRoundResult(cars)
+        println()
     }
 }
