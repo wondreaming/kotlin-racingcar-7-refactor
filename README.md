@@ -68,7 +68,7 @@
       <td>시도횟수는 1이상만 가능</td>
     </tr>
     <tr>
-      <td rowspan="5">자동차 이름</td>
+      <td rowspan="6">자동차 이름</td>
       <td></td>
       <td>빈 경우</td>
     </tr>
@@ -87,5 +87,9 @@
     <tr>
       <td></td>
       <td>이름은 5자 이하</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>이름이 한대면 경주 안됨</td>
     </tr>
 </table>
