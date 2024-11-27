@@ -1,12 +1,15 @@
 package racingcar.controller
 
+import racingcar.controller.Validation.CarsNameValidation
 import racingcar.controller.domain.UserInteractionController
 
 class RacingCar(
-    val userInteractionController: UserInteractionController = UserInteractionController()
+    private val userInteractionController: UserInteractionController = UserInteractionController()
 ) {
     fun run() {
         val carsName = getCarsName()
+        validateCarName(carsName)
+
         val raceCount = getRaceCount()
     }
 
@@ -18,5 +21,10 @@ class RacingCar(
     private fun getRaceCount(): String {
         val raceCount = userInteractionController.handleRaceCount()
         return raceCount
+    }
+
+    private fun validateCarName(carsName: String) {
+        val carsNameValidation = CarsNameValidation(carsName)
+        carsNameValidation.validateCarsName()
     }
 }

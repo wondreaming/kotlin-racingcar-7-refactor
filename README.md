@@ -69,7 +69,7 @@
     </tr>
     <tr>
       <td rowspan="6">자동차 이름</td>
-      <td></td>
+      <td>O</td>
       <td>빈 경우</td>
     </tr>
     <tr>
