@@ -60,7 +60,7 @@
       <td>시도 횟수는 long 범위를 입력하지 못한다.</td>
     </tr>
     <tr>
-      <td></td>
+      <td>O</td>
       <td>Int가 아닌 경우</td>
     </tr>
     <tr>

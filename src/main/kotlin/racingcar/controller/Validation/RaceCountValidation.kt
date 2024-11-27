@@ -6,6 +6,7 @@ class RaceCountValidation(
     fun validateRaceCount() {
         isNotEmpty()
         isLong()
+        isInteger()
     }
 
     private fun isNotEmpty() {
@@ -14,5 +15,9 @@ class RaceCountValidation(
 
     private fun isLong() {
         require(raceCount.toLongOrNull() == null) { RaceCountErrorType.NO_LONG.errorMessage }
+    }
+
+    private fun isInteger() {
+        require(raceCount.toIntOrNull() != null) { RaceCountErrorType.INTEGER.errorMessage }
     }
 }
