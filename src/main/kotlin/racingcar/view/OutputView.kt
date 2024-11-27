@@ -20,4 +20,8 @@ class OutputView {
             println("${car.name} : ${"-".repeat(car.position)}")
         }
     }
+
+    fun showWinner(winners: List<String>) {
+        println("최종우승자 : ${winners.joinToString(", ")}")
+    }
 }

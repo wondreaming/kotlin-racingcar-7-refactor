@@ -29,4 +29,8 @@ class UserInteractionController(
         outputView.showEachRoundResult(cars)
         println()
     }
+
+    fun handleWinners(winners: List<String>) {
+        outputView.showWinner(winners)
+    }
 }

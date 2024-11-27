@@ -12,6 +12,8 @@ class RacingCar(
         val cars = startCarsName()
         val playCount = startRaceCount()
         val doneCars = startGame(playCount, cars)
+        val winnerNames = getWinner(doneCars)
+        showWinners(winnerNames)
     }
 
     private fun getCarsName(): String {
@@ -64,6 +66,17 @@ class RacingCar(
             userInteractionController.handleEachRoundResult(cars)
         }
         return cars
+    }
+
+    private fun getWinner(cars: List<Car>): List<String> {
+        val winnerPosition = cars.map { it.position }.max()
+        val winner = cars.filter { winnerPosition == it.position }
+        val winnerName = winner.map { it.name }
+        return winnerName
+    }
+
+    private fun showWinners(winnersName: List<String>) {
+        userInteractionController.handleWinners(winnersName)
     }
 
     companion object {
