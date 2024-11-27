@@ -15,7 +15,13 @@ class RacingCar(
 
         val raceCount = getRaceCount()
         validateRaceCount(raceCount)
-        val palyCount = adapterRaceCount(raceCount)
+        val playCount = adapterRaceCount(raceCount)
+
+        userInteractionController.handlePlayStart()
+        for (count in 1..playCount) {
+            cars.forEach { it.move() }
+            userInteractionController.handleEachRoundResult(cars)
+        }
     }
 
     private fun getCarsName(): String {
@@ -46,4 +52,6 @@ class RacingCar(
     private fun adapterRaceCount(raceCount: String): Int {
         return raceCount.toInt()
     }
+
+
 }

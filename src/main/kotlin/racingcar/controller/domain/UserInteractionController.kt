@@ -1,5 +1,6 @@
 package racingcar.controller.domain
 
+import racingcar.model.Car
 import racingcar.view.InputView
 import racingcar.view.OutputView
 
@@ -18,5 +19,13 @@ class UserInteractionController(
         outputView.showRaceCount()
         val raceCount = inputView.getInput()
         return raceCount
+    }
+
+    fun handlePlayStart() {
+        outputView.showPlayStart()
+    }
+
+    fun handleEachRoundResult(cars: List<Car>) {
+        outputView.showEachRoundResult(cars)
     }
 }

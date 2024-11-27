@@ -4,7 +4,7 @@ import racingcar.util.RandomNumber
 import javax.swing.text.Position
 
 data class Car(
-    private val name: String,
+    val name: String,
     private var _position: Int = 0,
 ) {
     val position: Int
