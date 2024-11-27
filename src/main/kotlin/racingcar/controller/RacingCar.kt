@@ -7,10 +7,16 @@ class RacingCar(
 ) {
     fun run() {
         val carsName = getCarsName()
+        val raceCount = getRaceCount()
     }
 
     private fun getCarsName(): String {
         val carsName = userInteractionController.handleCarsName()
         return carsName
+    }
+
+    private fun getRaceCount(): String {
+        val raceCount = userInteractionController.handleRaceCount()
+        return raceCount
     }
 }

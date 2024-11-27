@@ -13,4 +13,10 @@ class UserInteractionController(
         val carsName = inputView.getInput()
         return carsName
     }
+
+    fun handleRaceCount(): String {
+        outputView.showRaceCount()
+        val raceCount = inputView.getInput()
+        return raceCount
+    }
 }
