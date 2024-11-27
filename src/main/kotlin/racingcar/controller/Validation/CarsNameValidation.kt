@@ -8,6 +8,7 @@ class CarsNameValidation(
         checkCarsCount()
         checkCarNameEmpty()
         checkCarName5()
+        checkSameName()
     }
 
     private fun isNotEmpty() {
@@ -23,10 +24,17 @@ class CarsNameValidation(
         val carsName = carsName.split(COMMA)
         require(carsName.any { it.isNotEmpty() }) { CarsNameErrorType.EMPTY_INPUT.errorMessage }
     }
+
     private fun checkCarName5() {
         val carsName = carsName.split(COMMA)
         require(carsName.any { it.length <= CAR_NAME_OK_LENGTH }) { CarsNameErrorType.UNDER_5.errorMessage }
     }
+
+    private fun checkSameName() {
+        val carsName = carsName.split(COMMA)
+        require(carsName.size == carsName.toSet().size) { CarsNameErrorType.SAME_NAME.errorMessage }
+    }
+
     companion object {
         private const val COMMA = ","
         private const val RACING_OK_COUNT = 2
