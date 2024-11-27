@@ -64,7 +64,7 @@
       <td>Int가 아닌 경우</td>
     </tr>
     <tr>
-      <td></td>
+      <td>O</td>
       <td>시도횟수는 1이상만 가능</td>
     </tr>
     <tr>

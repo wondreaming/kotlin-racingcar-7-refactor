@@ -7,6 +7,7 @@ class RaceCountValidation(
         isNotEmpty()
         isLong()
         isInteger()
+        over1()
     }
 
     private fun isNotEmpty() {
@@ -19,5 +20,13 @@ class RaceCountValidation(
 
     private fun isInteger() {
         require(raceCount.toIntOrNull() != null) { RaceCountErrorType.INTEGER.errorMessage }
+    }
+
+    private fun over1() {
+        require(raceCount.toInt() >= RACE_COUNT_OK) { RaceCountErrorType.UP_1.errorMessage }
+    }
+
+    companion object {
+        private const val RACE_COUNT_OK = 1
     }
 }
